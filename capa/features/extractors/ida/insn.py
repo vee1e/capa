@@ -256,11 +256,6 @@ def extract_insn_offset_features(
         if op_off is None:
             continue
 
-        if idaapi.is_mapped(op_off):
-            # Ignore:
-            #   mov esi, dword_1005B148[esi]
-            continue
-
         # I believe that IDA encodes all offsets as two's complement in a u32.
         # a 64-bit displacement isn't a thing, see:
         # https://stackoverflow.com/questions/31853189/x86-64-assembly-why-displacement-not-64-bits
